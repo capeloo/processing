@@ -1,11 +1,15 @@
 int tempoMario = 0;
 int tempoGangorra = 0;
 
+boolean colidiu = false;
+int pontos = 0;
+
 PImage gEsquerda, gCentro, gDireita, imgPadrao, imgMartelando;
 
 //configurações gerais
 void setup() {
-  size(800, 600);
+  size(1000, 600);
+  textSize(20);
 
   imgPadrao = loadImage("mario-padrao.png");
   imgMartelando = loadImage("mario-martelando.png");
@@ -33,6 +37,9 @@ void draw() {
   mostraMario(estadoMario);
   MEF_Gangorra();
   MEF_Mario();
+  colisao(estadoGangorra, estadoMario);
+  println(colidiu);
+  pontuacao(pontos);
 }
 
 //máquinas de estados finitos
@@ -87,24 +94,35 @@ void MEF_Mario() {
 //representação gráfica
 void mostraGangorra(int estado) {
   if (estado == esquerda) {
-    image(gEsquerda, 60, 235);
+    image(gEsquerda, 320, 235);
   } else if (estado == centro_1) {
-    image(gCentro, 60, 235);
+    image(gCentro, 320, 235);
   } else if (estado == direita) {
-    image(gDireita, 60, 235);
+    image(gDireita, 320, 235);
   } else if (estado == centro_2) {
-    image(gCentro, 60, 235);
+    image(gCentro, 320, 235);
   }
 }
 
 void mostraMario(int estado) {
   if (estado == parado) {
-    image(imgPadrao, 470, 150);
+    image(imgPadrao, 710, 150);
   } else if (estado == martelando) {
-    image(imgMartelando, 470, 150);
+    image(imgMartelando, 670, 150);
   }
 }
 
-void colisão(){
-  
+void colisao(int estadoGangorra, int estadoMario) {
+  if ( estadoGangorra == esquerda && estadoMario == martelando) {
+    colidiu = true;
+    if (colidiu == true) {
+      pontos += 1;
+    }
+  }
 }  
+
+void pontuacao(int pontos) {
+  fill(0);
+  text("Pontos:", 30, 50);
+  text(pontos, 110, 50);
+}
