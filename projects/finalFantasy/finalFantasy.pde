@@ -10,7 +10,7 @@ int manaChar = 50;
 int defesa = 0;
 boolean atingido = false;
 int tempoDano = 0;
-int vidaTiamat = 1000;
+int vidaTiamat = 200;
 
 //estados possíveis
 int telaInicial = 0;
@@ -177,16 +177,6 @@ void batalha() {
   text(manaChar, 550, 530);
   fill(c[0], c[1], c[2]);
   rect(50, 100, 200, 200);
-  if (mousePressed) {
-    if (mouseX > 160 && mouseX < 290) {
-      if (mouseY > 460 && mouseY < 490) {
-        vidaTiamat -= ataque(25, 0);
-        estadoChar= atacar;
-        atingido = true;
-        println(vidaTiamat);
-      }
-    }
-  }
   if (vidaTiamat == 0) {
     eventoFinalizado = true;
     estado = resolucao;
@@ -207,7 +197,16 @@ void resolucao() {
   text("Vitória", 265, height/2);
   text("Pressione enter para continuar", 145, 340);
 }
-
+void mousePressed(){
+    if (mouseX > 160 && mouseX < 290) {
+      if (mouseY > 460 && mouseY < 490) {
+        vidaTiamat -= ataque(25, 0);
+        estadoChar= atacar;
+        atingido = true;
+        println(vidaTiamat);
+      }
+    }
+}
 int ataque(int forca, int defesa) {
   int dano = forca - defesa;
   return dano;
