@@ -24,15 +24,15 @@ int esperar = 1;
 
 //estados iniciais
 int estado = telaInicial;
-int estadoPersonagem = esperar;
+int estadoChar = esperar;
 
 int [][] m = {
-  {0, 0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0, 0},
-  {0, 0, 0, 0, 0, 1},
+  {0, 0, 0, 0, 0, 0}, 
+  {0, 0, 0, 0, 0, 0}, 
+  {0, 0, 0, 0, 0, 0}, 
+  {0, 0, 0, 0, 0, 0}, 
+  {0, 0, 0, 0, 0, 0}, 
+  {0, 0, 0, 0, 0, 1}, 
 };
 
 void setup() {
@@ -42,10 +42,10 @@ void setup() {
 
 void draw() {
   background(255);
-  MEF();
+  jogo_mef();
 }
 
-void MEF() {
+void jogo_mef() {
   if (estado == telaInicial) {
     fill(0);
     text("Tela Inicial", 260, height/2);
@@ -60,8 +60,8 @@ void MEF() {
       stroke(255);
       rect(500, 500, 100, 100);
     }
-    personagem();
-    colisão();
+    char_mef();
+    colisao();
     if (eventoFinalizado == false) {
       if (evento == true) {
         estado = batalha;
@@ -73,8 +73,11 @@ void MEF() {
   }
   if (estado == resolucao) {
     resolucao();
+    if (keyCode == ENTER) {
+        estado = mapa;
+      }
+    }
   }
-}
 
 void mostraMapa() {
   for (int i=0; i<6; i++) {
@@ -95,7 +98,7 @@ void mostraMapa() {
   }
 }
 
-void personagem() {
+void char_mef() {
   if (estado == mapa) {
     fill(210);
     rect(x, y, 100, 100);
@@ -129,7 +132,7 @@ void personagem() {
   }
 }
 
-void colisão() {
+void colisao() {
   if (x < 0) {
     x = 0;
   } else if (x > 500) {
@@ -143,15 +146,15 @@ void colisão() {
 }
 
 void batalha() {
-  if (estadoPersonagem == esperar) {
+  if (estadoChar == esperar) {
     fill(0);
     rect(450, 150, 100, 100);
-  } else if (estadoPersonagem == atacar) {
+  } else if (estadoChar == atacar) {
     fill(0);
     rect(430, 150, 100, 100);
     tempo++;
     if (tempo == 20) {
-      estadoPersonagem = esperar;
+      estadoChar = esperar;
       tempo = 0;
     }
   }
@@ -178,7 +181,7 @@ void batalha() {
     if (mouseX > 160 && mouseX < 290) {
       if (mouseY > 460 && mouseY < 490) {
         vidaTiamat -= ataque(25, 0);
-        estadoPersonagem = atacar;
+        estadoChar= atacar;
         atingido = true;
         println(vidaTiamat);
       }
@@ -198,15 +201,14 @@ void batalha() {
     atingido = false;
   }
 }
+
 void resolucao() {
-  text("Vitória", 280, height/2);
-  tempo++;
-  if (tempo == 60) {
-    tempo = 0;
-    estado = mapa;
-  }
+  fill(0);
+  text("Vitória", 265, height/2);
+  text("Pressione enter para continuar", 145, 340);
 }
-int ataque(int força, int defesa) {
-  int dano = força - defesa;
+
+int ataque(int forca, int defesa) {
+  int dano = forca - defesa;
   return dano;
 }
