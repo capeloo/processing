@@ -1,7 +1,7 @@
 void char_mef() {
   if (estado == mapa) {
     fill(210);
-    rect(x, y, 100, 100);    
+    rect(x, y, 100, 100);
     if (andar) {
       if (keyPressed) {
         if (keyCode == RIGHT) {
@@ -19,15 +19,15 @@ void char_mef() {
         }
       }
     }
-    if (andar == false) {
-      tempo++;
-      if (tempo == 20) {
-        tempo = 0;
-        andar = true;
-      }
+  }
+  if (andar == false) {
+    tempo++;
+    if (tempo == 20) {
+      tempo = 0;
+      andar = true;
     }
-    if (x == 500 && y == 500) {
-      evento = true;
-    }
+  }
+  if (x == 500 && y == 500) {
+    evento = true;
   }
 }

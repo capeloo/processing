@@ -53,11 +53,60 @@ void menu_batalha() {
 
 void resolucao() {
   fill(0);
-  text("Vitória", 265, height/2);
-  text("Pressione enter para continuar", 145, 340);
+  text("Vitória", 280, height/2);
+  text("Pressione enter para continuar", 175, 340);
 }
 
 int ataque(int forca, int defesa) {
   int dano = forca - defesa;
   return dano;
+}
+
+void mousePressed() {
+  if (mouseX > 160 && mouseX < 290) {
+    if (mouseY > 460 && mouseY < 490) {
+      sword.play();
+      vidaTiamat -= ataque(25, 0);
+      estadoChar = atacar;
+      estadoTiamat = atacado;
+      fimDoTurno = true;
+      println(vidaTiamat);
+    }
+  }
+}
+
+void batalha() {
+  //char mef batalha
+  if (estadoChar == esperar) {
+    fill(0);
+    rect(450, 150, 100, 100);
+  } else if (estadoChar == atacar) {
+    fill(0);
+    rect(430, 150, 100, 100);
+    tempo++;
+    if (tempo == 20) {
+      estadoChar = esperar;
+      tempo = 0;
+    }
+  } else if (estadoChar == atacado) {
+    fill(255, 0, 0);
+    rect(450, 150, 100, 100);
+    tempo++;
+    if (tempo == 20) {
+      estadoChar = esperar;
+      tempo = 0;
+    }
+  }
+
+  //vitoria
+  if (vidaTiamat == 0) {
+    eventoFinalizado = true;
+    estado = resolucao;
+  }
+
+  //menu
+  menu_batalha();
+
+  //tiamat mef
+  tiamat_mef();
 }
