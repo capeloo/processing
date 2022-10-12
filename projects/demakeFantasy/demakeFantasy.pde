@@ -5,6 +5,8 @@ SoundFile battle;
 SoundFile victory;
 SoundFile sword;
 
+PImage logo;
+
 int x = 0;
 int y = 0;
 int tempo = 0;
@@ -51,6 +53,7 @@ void setup() {
   battle = new SoundFile(this, "assets/battle-theme.wav");
   victory = new SoundFile(this, "assets/victory-theme.wav");
   sword = new SoundFile(this, "assets/sword-sound-effect.wav");
+  logo = loadImage("assets/ff-logo.jpg");
 }
 
 void draw() {

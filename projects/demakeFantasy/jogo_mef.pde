@@ -1,7 +1,9 @@
 void jogo_mef() {
   if (estado == telaInicial) {
+    logo.resize(400, 200);
+    image(logo, 105, 100);
     fill(0);
-    text("Tela Inicial", 260, height/2);
+    text("-  click to start  -", 230, 400);
     if (!prelude.isPlaying()) {
       prelude.play();
     }
