@@ -15,7 +15,7 @@ void jogo_mef() {
   if (estadoMapa == mapa1) {
     mostraMapa(m1);
     char_mef();
-    transicaoDeMapa_mef();
+    transicaoDeMapa();
     if (!village.isPlaying()) {
       village.play();
     }
@@ -23,7 +23,7 @@ void jogo_mef() {
   if (estadoMapa == mapa2) {
     mostraMapa(m2);
     char_mef();
-    transicaoDeMapa_mef();
+    transicaoDeMapa();
     if (!village.isPlaying()) {
       village.play();
     }

@@ -30,7 +30,7 @@ void movimentoChar() {
   }
 }
 
-void transicaoDeMapa_mef() {
+void transicaoDeMapa() {
   if (estadoMapa == mapa1) {
     if (x>576) {
       estadoMapa = mapa2;
