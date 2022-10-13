@@ -28,4 +28,37 @@ void jogo_mef() {
       village.play();
     }
   }
+  if (estadoMapa == mapa3) {
+    mostraMapa(m3);
+    char_mef();
+    transicaoDeMapa();
+    if (!village.isPlaying()) {
+      village.play();
+    }
+  }
+  if (estadoMapa == batalha) {
+    village.stop();
+    char_mef();
+    mostraTiamat();
+    menu_batalha();
+    if (!battle.isPlaying()) {
+      battle.play();
+    }
+    if (vidaTiamat == 0) {
+      evento = false;
+      sword.stop();
+      estadoMapa = resolucao;
+    }
+  }
+  if (estadoMapa == resolucao) {
+    battle.stop();
+    if (!victory.isPlaying()) {
+      victory.play();
+    }
+    resolucao();
+    if (keyCode == ENTER) {
+      victory.stop();
+      estadoMapa = mapa3;
+    }
+  }
 }

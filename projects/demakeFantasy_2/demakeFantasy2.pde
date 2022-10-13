@@ -19,12 +19,18 @@ void setup() {
   lake = loadImage("assets/ff-lake48.png");
   hp = loadImage("assets/ff-hp48.png");
   rip = loadImage("assets/ff-rip48.png");
-  sword = loadImage("assets/ff-sword48.png");
+  crest = loadImage("assets/ff-sword48.png");
   shield = loadImage("assets/ff-shield48.png");
   logo = loadImage("assets/ff-logo.jpg");
+  bridge = loadImage("assets/ff-bridge48.png");
+  hole = loadImage("assets/ff-hole48.png");
+  column = loadImage("assets/ff-column48.png");
 
   prelude = new SoundFile(this, "assets/prelude.wav");
   village = new SoundFile(this, "assets/village-theme.wav");
+  battle = new SoundFile(this, "assets/battle-theme.wav");
+  sword = new SoundFile(this, "assets/sword-sound-effect.wav");
+  victory = new SoundFile(this, "assets/victory-theme.wav");
 
   gif1 = new PImage [nFrames];
   gif2 = new PImage [nFrames];

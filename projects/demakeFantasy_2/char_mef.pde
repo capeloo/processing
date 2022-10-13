@@ -7,4 +7,11 @@ void char_mef() {
     mostraChar();
     movimentoChar();
   }
+  if (estadoMapa == mapa3) {
+    mostraChar();
+    movimentoChar();
+  }
+  if(estadoMapa == batalha) {
+    mostraChar();
+  }
 }

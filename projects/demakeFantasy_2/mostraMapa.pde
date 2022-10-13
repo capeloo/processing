@@ -51,13 +51,22 @@ void mostraMapa(int [][] m) {
         image(rip, i*48, j*48);
         break;
       case 16:
-        image(sword, i*48, j*48);
+        image(crest, i*48, j*48);
         break;
       case 17:
         image(window2, i*48, j*48);
         break;
       case 18:
         image(shield, i*48, j*48);
+        break;
+      case 19:
+        image(bridge, i*48, j*48);
+        break;
+      case 20:
+        image(hole, i*48, j*48);
+        break;
+      case 21:
+        image(column, i*48, j*48);
         break;
       }
     }
