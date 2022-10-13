@@ -2,15 +2,20 @@ import processing.sound.*;
 SoundFile prelude;
 SoundFile village;
 
+PImage [] gif1, gif2, gif3, gif4;
+
 PImage grass, tree, window, window2, door, fence, hp,
   rip, flowers, lake, inn, wall, wall2, floor,
   roof, roof2, roof3, sword, shield, logo;
-
-int x = 0;
-int y = 0;
+  
+int x = 240;
+int y = 384;
 int tempo = 0;
 
-boolean andar = true;
+int nFrames = 2;
+int frame;
+
+boolean andar = false;
 
 //estados possíveis
 int telaInicial = 0;

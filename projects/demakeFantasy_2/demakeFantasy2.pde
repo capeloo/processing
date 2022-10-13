@@ -25,6 +25,32 @@ void setup() {
 
   prelude = new SoundFile(this, "assets/prelude.wav");
   village = new SoundFile(this, "assets/village-theme.wav");
+
+  gif1 = new PImage [nFrames];
+  gif2 = new PImage [nFrames];
+  gif3 = new PImage [nFrames];
+  gif4 = new PImage [nFrames];
+  
+  int i = 0;
+  while (i < nFrames) {
+    gif1[i] = loadImage("assets/front-0" + i + ".gif");
+    i++;
+  }
+  int j = 0;
+  while (j < nFrames) {
+    gif2[j] = loadImage("assets/back-0" + j + ".gif");
+    j++;
+  }
+  int k = 0;
+  while (k < nFrames) {
+    gif3[k] = loadImage("assets/left-0" + k + ".gif");
+    k++;
+  }
+  int l = 0;
+  while (l < nFrames) {
+    gif4[l] = loadImage("assets/right-0" + l + ".gif");
+    l++;
+  }
 }
 
 void draw() {
