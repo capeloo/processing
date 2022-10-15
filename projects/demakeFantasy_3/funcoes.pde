@@ -158,6 +158,41 @@ void colisao() {
       }
     }
   } else if (estadoMapa == mapa2) {
+    if (y < 192) {
+      y = 192;
+    } else if ( y > 490) {
+      y = 490;
+    } else if (x > 480) {
+      x = 480;
+    } else if (y > 192 && y < 480 && x < 192) {
+      if (keyCode == DOWN) {
+        y = 192;
+      } else if (keyCode == LEFT) {
+        x = 192;
+      } else if (keyCode == UP) {
+        y = 480;
+      }
+    } else if (x > 192 && y < 288) {
+      if (keyCode == RIGHT) {
+        x = 192;
+      } else if (keyCode == UP) {
+        y = 288;
+      }
+    } else if ( x > 340 && y < 480) {
+      if (keyCode == RIGHT) {
+        x = 340;
+      } else if (keyCode == UP) {
+        y = 480;
+      }
+    } else if (x < 332 && y > 288 && y < 480) {
+      if ( keyCode == DOWN) {
+        y = 288;
+      } else if (keyCode == LEFT) {
+        x = 332;
+      } else if (keyCode == UP) {
+        y = 480;
+      }
+    }
   } else if (estadoMapa == mapa3) {
   }
 }
