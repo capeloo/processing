@@ -1,6 +1,21 @@
 void mostraChar() {
   if (estadoMapa != batalha) {
-    if (andar) {
+    if (!andar) {
+      image(gif1[0], x, y);
+      if (keyCode == RIGHT) {
+        image(gif4[0], x, y);
+      } else if (keyCode == LEFT) {
+        image(gif3[0], x, y);
+      } else if (keyCode == DOWN) {
+        image(gif1[0], x, y);
+      } else if (keyCode == UP) {
+        image(gif2[0], x, y);
+      }
+      if (frameCount % 20 == 0) {
+        frame++;
+      }
+      if (frame == nFrames) frame = 0;
+    } else {
       if (keyCode == RIGHT) {
         image(gif4[frame], x, y);
       } else if (keyCode == LEFT) {
@@ -14,9 +29,7 @@ void mostraChar() {
         frame++;
       }
       if (frame == nFrames) frame = 0;
-    } else {
-      image(gif1[0], x, y);
-      }
+    }
   } else {
     fill(0);
     rect(450, 150, 100, 100);
