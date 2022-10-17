@@ -15,8 +15,8 @@ void mostraChar() {
       }
       if (frame == nFrames) frame = 0;
     } else {
-        image(gif1[0], x, y);
-       }
+      image(gif1[0], x, y);
+      }
   } else {
     fill(0);
     rect(450, 150, 100, 100);
