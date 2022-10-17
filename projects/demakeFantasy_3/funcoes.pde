@@ -1,6 +1,5 @@
 void mostraChar() {
   if (estadoMapa != batalha) {
-    image(gif1[0], x, y);
     if (andar) {
       if (keyCode == RIGHT) {
         image(gif4[frame], x, y);
@@ -15,7 +14,9 @@ void mostraChar() {
         frame++;
       }
       if (frame == nFrames) frame = 0;
-    }
+    } else {
+        image(gif1[0], x, y);
+       }
   } else {
     fill(0);
     rect(450, 150, 100, 100);
