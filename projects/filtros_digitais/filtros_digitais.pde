@@ -17,17 +17,16 @@ void setup() {
   image(imgSample, 320, 0);
   
   //tons de cinza
-  imgSample.filter(GRAY);
-  image(imgSample, 640, 0);
+  img.filter(GRAY);
+  image(img, 640, 0);
   
   //vermelho
-  imgSample.filter(GRAY);
   cores(1);
   image(imgSample, 0, 240);
 
   //amarelo
-  //cores(4);
-  //image(imgSample, 640, 0);
+  cores(4);
+  image(imgSample, 320, 240);
 }
 
 void ruído() {
