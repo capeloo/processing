@@ -4,12 +4,12 @@ void jogo_mef() {
     image(logo, 105, 100);
     fill(0);
     text("-  click to start  -", 230, 400);
-    //if (!prelude.isPlaying()) {
-      //prelude.play();
-    //}
+    if (!prelude.isPlaying()) {
+      prelude.play();
+    }
     if (mousePressed) {
       estadoMapa = mapa1;
-      //prelude.stop();
+      prelude.stop();
     }
   }
   if (estadoMapa == mapa1) {
@@ -17,26 +17,26 @@ void jogo_mef() {
     char_mef();
     transicaoDeMapa();
     colisao();
-    //if (!village.isPlaying()) {
-      //village.play();
-    //}
+    if (!village.isPlaying()) {
+      village.play();
+    }
   }
   if (estadoMapa == mapa2) {
     mostraMapa(m2);
     char_mef();
     transicaoDeMapa();
     colisao();
-    //if (!village.isPlaying()) {
-      //village.play();
-    //}
+    if (!village.isPlaying()) {
+      village.play();
+    }
   }
   if (estadoMapa == mapa3) {
     mostraMapa(m3);
     char_mef();
     transicaoDeMapa();
-    //if (!village.isPlaying()) {
-      //village.play();
-    //}
+    if (!village.isPlaying()) {
+      village.play();
+    }
   }
   if (estadoMapa == batalha) {
     village.stop();
